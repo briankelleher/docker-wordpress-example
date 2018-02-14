@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+  wordpress:
+    image: wordpress:latest
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - ./:/var/www/html/wp-content/themes/html5-blank
+    environment:
+      WORDPRESS_DB_PASSWORD: wordpress
+
+  mysql:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: wordpress
